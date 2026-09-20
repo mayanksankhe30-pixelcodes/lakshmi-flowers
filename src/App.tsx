@@ -79,7 +79,7 @@ function App() {
     return () => clearInterval(interval);
   }, []);
 
-  // ONLY CHANGE: open the selected collection
+  // Open selected bouquet collection
   const handleBouquetSelect = (type: "big" | "small") => {
     console.log(`${type} bouquet selected`);
 
@@ -142,6 +142,7 @@ function App() {
         <div className="nav-links">
           <a href="#home">Home</a>
           <a href="#collection">Bouquets</a>
+          <a href="#delivery">Delivery</a>
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
         </div>
@@ -451,6 +452,186 @@ function App() {
         </div>
       </section>
 
+      {/* DELIVERY AREAS + SHOP ADDRESS */}
+      <motion.section
+        id="delivery"
+        initial={{ opacity: 0, y: 45 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.8 }}
+        style={{
+          padding: "100px 30px",
+          background:
+            "linear-gradient(180deg, #fdfaf7 0%, #f5eee8 100%)",
+        }}
+      >
+        <div
+          style={{
+            maxWidth: "1100px",
+            margin: "0 auto",
+          }}
+        >
+          <div
+            style={{
+              textAlign: "center",
+              marginBottom: "55px",
+            }}
+          >
+            <span
+              className="section-label"
+              style={{
+                display: "inline-block",
+              }}
+            >
+              WE DELIVER ACROSS VASAI–VIRAR
+            </span>
+
+            <h2
+              style={{
+                fontSize: "clamp(32px, 5vw, 55px)",
+                fontWeight: 400,
+                margin: "18px 0 12px",
+              }}
+            >
+              Flowers delivered to your doorstep.
+            </h2>
+
+            <p
+              style={{
+                color: "#6f625a",
+                fontSize: "16px",
+                lineHeight: 1.7,
+                maxWidth: "650px",
+                margin: "0 auto",
+              }}
+            >
+              From everyday celebrations to weddings and special occasions,
+              we deliver beautiful flowers across Vasai–Virar.
+            </p>
+          </div>
+
+          {/* DELIVERY AREAS */}
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "center",
+              gap: "12px",
+              marginBottom: "65px",
+            }}
+          >
+            {[
+              "Vasai East",
+              "Vasai West",
+              "Naigaon East",
+              "Naigaon West",
+              "Nalasopara East",
+              "Nalasopara West",
+              "Virar East",
+              "Virar West",
+              "Arnala",
+              "Rajodi",
+            ].map((area) => (
+              <motion.div
+                key={area}
+                whileHover={{ y: -4, scale: 1.02 }}
+                style={{
+                  padding: "14px 22px",
+                  background: "#ffffff",
+                  border: "1px solid #e4d6cc",
+                  borderRadius: "30px",
+                  color: "#5d4d44",
+                  fontSize: "14px",
+                  boxShadow:
+                    "0 8px 25px rgba(80, 55, 40, 0.06)",
+                }}
+              >
+                <span style={{ marginRight: "8px" }}>
+                  ✿
+                </span>
+                {area}
+              </motion.div>
+            ))}
+          </div>
+
+          {/* SHOP ADDRESS CARD */}
+          <div
+            style={{
+              maxWidth: "850px",
+              margin: "0 auto",
+              padding: "45px 35px",
+              background: "#ffffff",
+              borderRadius: "24px",
+              textAlign: "center",
+              boxShadow:
+                "0 20px 60px rgba(80, 55, 40, 0.08)",
+              border: "1px solid #eaded6",
+            }}
+          >
+            <div
+              style={{
+                fontSize: "34px",
+                marginBottom: "15px",
+              }}
+            >
+              📍
+            </div>
+
+            <span
+              className="section-label"
+              style={{
+                display: "inline-block",
+              }}
+            >
+              VISIT OUR STORE
+            </span>
+
+            <h3
+              style={{
+                margin: "18px 0",
+                fontSize: "26px",
+                fontWeight: 500,
+                color: "#4e4038",
+              }}
+            >
+              Lakshmi Flowers
+            </h3>
+
+            <p
+              style={{
+                color: "#6f625a",
+                fontSize: "16px",
+                lineHeight: 1.9,
+                margin: "0 auto 28px",
+                maxWidth: "650px",
+              }}
+            >
+              Shop No. 01, VVMC Bhaji Market,
+              <br />
+              Opp. Croma Showroom, Near D-Mart,
+              <br />
+              Sant Nagar, 90 Feet Road,
+              <br />
+              Nalasopara Link Road, Virar East – 401305
+            </p>
+
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Shop+No+01+VVMC+Bhaji+Market+Opp+Croma+Showroom+Near+D-Mart+Sant+Nagar+90+Feet+Road+Nalasopara+Link+Road+Virar+East+401305"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="primary-button"
+              style={{
+                display: "inline-flex",
+                textDecoration: "none",
+              }}
+            >
+              Get Directions
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+      </motion.section>
+
       {/* CONTACT CTA */}
       <section
         className="contact-section"
@@ -525,6 +706,7 @@ function App() {
         <div className="footer-links">
           <a href="#home">Home</a>
           <a href="#collection">Bouquets</a>
+          <a href="#delivery">Delivery</a>
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
         </div>
